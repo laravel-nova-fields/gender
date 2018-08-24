@@ -1,0 +1,36 @@
+{
+    "name": "laravel-nova-fields/gender",
+    "description": "A Laravel Nova gender field.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "gender"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Travis Elkins",
+            "email": "travis.elkins@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelNovaFields\\Gender\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelNovaFields\\Gender\\FieldServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
