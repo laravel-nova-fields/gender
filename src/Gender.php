@@ -21,6 +21,9 @@ class Gender extends Select
         $this->options([
             'male' => __('Male'),
             'female' => __('Female'),
+            'nonbinary' => __('Non-Binary'),
+            'other' => __('Other'),
+            'decline' => __('Prefer not to say'),
         ]);
     }
 }
