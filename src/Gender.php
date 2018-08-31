@@ -18,9 +18,32 @@ class Gender extends Select
     {
         parent::__construct($name, $attribute, $resolveCallback);
 
-        $this->options([
-            'male' => __('Male'),
-            'female' => __('Female'),
-        ]);
+        $this->setGenderOptions();
+    }
+
+    /**
+     * Specify that this field should include the extended gender set.
+     *
+     * @param  bool  $value
+     * @return $this
+     */
+    public function includeExtended($value = true)
+    {
+        $this->setGenderOptions($value);
+
+        return $this;
+    }
+
+    protected function setGenderOptions($includeExtended = false)
+    {
+        $options = collect(config('laravel-nova-fields-gender.default'));
+
+        if ($includeExtended) {
+            $options = $options->merge(collect(config('laravel-nova-fields-gender.extended')));
+        }
+
+        $this->options($options->transform(function ($value) {
+            return __($value);
+        })->all());
     }
 }

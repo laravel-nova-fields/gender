@@ -15,7 +15,9 @@ class FieldServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__ . '/../config/laravel-nova-fields-gender.php' => config_path('laravel-nova-fields-gender.php'),
+        ], 'config');
     }
 
     /**
@@ -25,6 +27,8 @@ class FieldServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/laravel-nova-fields-gender.php', 'laravel-nova-fields-gender'
+        );
     }
 }

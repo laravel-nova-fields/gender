@@ -10,6 +10,14 @@ You can install this package in to a Laravel app that uses [Nova](https://nova.l
 composer require laravel-nova-fields/gender
 ```
 
+To publish the config file to `config/laravel-nova-fields-gender.php` run:
+
+```bash
+php artisan vendor:publish --provider="LaravelNovaFields\Gender\FieldServiceProvider"
+```
+
+The contents of this configuration can be modified to modify the various default and extended genders.
+
 ## Usage
 
 You can use the `LaravelNovaFields\Gender\Gender` field in your Nova resource:
@@ -30,7 +38,8 @@ class Person extends Resource
         return [
             // ...
 
-            Gender::make('Gender'),
+            Gender::make('Gender')
+                ->includeExtended(), // includes extended gender set
 
             // ...
         ];
